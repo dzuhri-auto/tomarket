@@ -14,7 +14,7 @@ Pastikan kamu sudah install:
 
 Script ini butuh custom API KEY , API KEY nya cuma disewakan only.
 
-Chat [Irham](https://t.me/irhamdz) for pricing !
+Chat [Irham](https://t.me/irhamdz) "bang mau sewa api key", buat harga sewa nya !
 
 ## Install
 
