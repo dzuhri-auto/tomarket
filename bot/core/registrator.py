@@ -1,42 +1,26 @@
+from pyrogram import Client
+
+from bot.config import settings
 from bot.utils import logger
-from helpers import get_tele_obj_from_query_id
 
 
-async def register_query_id() -> None:
+async def register_sessions() -> None:
+    API_ID = settings.API_ID
+    API_HASH = settings.API_HASH
 
-    add = True
-    while add:
-        query_id_str = input("\nMasukkan query id (press Enter to exit): ")
+    if not API_ID or not API_HASH:
+        raise ValueError("API_ID and API_HASH not found in the .env file.")
 
-        if not query_id_str:
-            break
-        
-        tele_obj = get_tele_obj_from_query_id(query_id_str)
-        tele_user_obj = tele_obj.get("user", {})
-        username = tele_user_obj.get("username")
-        first_name = tele_user_obj.get("first_name")
-        last_name = tele_user_obj.get("last_name")
-        
-        username_exist = False
-        
-        with open("query_ids.txt", "r+") as fd:
-            content = fd.readlines()
-            if content:
-                existing_username = []
-                for cnt in content:
-                    tele_obj = get_tele_obj_from_query_id(cnt)
-                    cnt_user_obj = tele_obj.get("user", {})
-                    cnt_username = cnt_user_obj.get("username")
-                    existing_username.append(cnt_username)
+    session_name = input("\nEnter the session name (press Enter to exit): ")
 
-                if username in set(existing_username):
-                    username_exist = True
-                else:
-                    fd.write(f"\n{query_id_str}")
-            else:
-                fd.write(f"{query_id_str.strip()}")
+    if not session_name:
+        return None
 
-        if username_exist:
-            logger.error(f"Akun @{username} sudah terdaftar, tambah akun yg lainnya aja gan !")
-        else:
-            logger.success(f"Akun @{username} | {first_name} {last_name} | berhasil ditambahkan !")
+    session = Client(name=session_name, api_id=API_ID, api_hash=API_HASH, workdir="sessions/")
+
+    async with session:
+        user_data = await session.get_me()
+
+    logger.success(
+        f"Session added successfully @{user_data.username} | {user_data.first_name} {user_data.last_name}"
+    )

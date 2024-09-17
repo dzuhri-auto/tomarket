@@ -3,6 +3,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_ignore_empty=True)
+
+    API_ID: int
+    API_HASH: str
     API_KEY: str
 
     POINTS_COUNT: list[int] = [450, 600]
@@ -13,7 +16,7 @@ class Settings(BaseSettings):
     AUTO_CLAIM_COMBO: bool = True
 
     USE_RANDOM_DELAY_IN_RUN: bool = True
-    RANDOM_DELAY_IN_RUN: list[int] = [0, 15]
+    RANDOM_DELAY_IN_RUN: list[int] = [5, 30]
 
     USE_PROXY_FROM_FILE: bool = False
 
