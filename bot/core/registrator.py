@@ -10,7 +10,8 @@ async def register_sessions() -> None:
 
     if not API_ID or not API_HASH:
         raise ValueError("API_ID and API_HASH not found in the .env file.")
-
+    
+    logger.info("Please only register account with userid below 61xxxx (check @userinfobot) otherwise your account will got banned.")
     session_name = input("\nEnter the session name (press Enter to exit): ")
 
     if not session_name:

@@ -39,6 +39,11 @@ Obtain API ID and API HASH:
 Make sure you already install:
 
 - [Python](https://www.python.org/downloads/release/python-31014/) **version 3.10**
+  
+### Disclaimer
+
+Please only use telegram account with id below `61xxxxx`, check `@userinfobot` for checking the id.
+Otherwise the account will got automatically banned !!
 
 ## Request API KEY
 
