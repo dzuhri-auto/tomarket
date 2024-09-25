@@ -4,6 +4,9 @@ Tomarket Telegram Mini App Bot
 
 For README in English: [![en](https://img.shields.io/badge/README-en-red.svg)](https://github.com/dzuhri-auto/tomarket/blob/master/README.md)
 
+> [!WARNING]
+> *DYOR, Saya tidak bertanggung jawab terhadap akun mu, Khusus untuk bot tipe login ini harap menggunakan akun telegram dengan awalan id dibawah `61xxxxx`, check `@userinfobot` untuk checking awalan id. Jika pakai akun dengan awalan id diatas itu akan otomatis banned !!*.
+
 ## Fitur
 
 - Auto Claim Daily Check-in
@@ -14,19 +17,19 @@ For README in English: [![en](https://img.shields.io/badge/README-en-red.svg)](h
 
 ## .env Settings
 
-| Name | Description | Default |
-| --- | ----------- | --------- |
-| API_KEY | Custom API KEY | |
-| API_ID / API_HASH | API and API HASH from telegram account | |
-| POINTS_COUNT | Random skor untuk setiap game  | [450, 600] |
-| AUTO_PLAY_GAME | Auto Play Game | True |
-| AUTO_TASK | Auto Clear Tasks | True |
-| AUTO_DAILY_REWARD | Auto Claim Daily Reward| True |
-| AUTO_CLAIM_STARS | Auto Claim Stars | True|
-| AUTO_CLAIM_COMBO | Auto Claim Daily Combo | True |
-| USE_RANDOM_DELAY_IN_RUN | Mengaktifkan delay sebelum menjalankan bot | True |
-| RANDOM_DELAY_IN_RUN | Random delay dalam detik sebelum menjalankan bot | [5, 30] |
-| USE_PROXY_FROM_FILE | Menggunakan proxy | False |
+| Name                    | Description                                      | Default    |
+| ----------------------- | ------------------------------------------------ | ---------- |
+| API_KEY                 | Custom API KEY                                   |            |
+| API_ID / API_HASH       | API and API HASH from telegram account           |            |
+| POINTS_COUNT            | Random skor untuk setiap game                    | [450, 600] |
+| AUTO_PLAY_GAME          | Auto Play Game                                   | True       |
+| AUTO_TASK               | Auto Clear Tasks                                 | True       |
+| AUTO_DAILY_REWARD       | Auto Claim Daily Reward                          | True       |
+| AUTO_CLAIM_STARS        | Auto Claim Stars                                 | True       |
+| AUTO_CLAIM_COMBO        | Auto Claim Daily Combo                           | True       |
+| USE_RANDOM_DELAY_IN_RUN | Mengaktifkan delay sebelum menjalankan bot       | True       |
+| RANDOM_DELAY_IN_RUN     | Random delay dalam detik sebelum menjalankan bot | [5, 30]    |
+| USE_PROXY_FROM_FILE     | Menggunakan proxy                                | False      |
 
 ## Persiapan
 
@@ -75,7 +78,7 @@ sudo chmod +x ubuntu/install.sh ubuntu/run.sh ubuntu/update.sh
 ```
 
 ```shell
-./ubuntu/install.sh
+source ./ubuntu/install.sh
 ```
 
 ***note : Jangan lupa untuk mengedit file `.env`***
@@ -117,20 +120,4 @@ windows\run.bat
 
 ```shell
 ./ubuntu/run.sh
-```
-
-## Update Bot
-
-FUntuk update bot:
-
-**Windows** :
-
-```shell
-windows\update.bat
-```
-
-**Mac / Linux / VPS** :
-
-```shell
-./ubuntu/update.sh
 ```

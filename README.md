@@ -4,6 +4,9 @@ Tomarket Telegram Mini App Bot
 
 For README in Bahasa Indonesia: [![en](https://img.shields.io/badge/README-id-red.svg)](https://github.com/dzuhri-auto/tomarket/blob/master/README.id.md)
 
+> [!WARNING]
+> *DYOR, I am not responsible for your account, For this login type bot please only use telegram account with id below `61xxxxx`, check `@userinfobot` for checking the id. Otherwise the account will got automatically banned !!*.
+
 ## Feature
 
 - Auto Claim Daily Check-in
@@ -14,19 +17,19 @@ For README in Bahasa Indonesia: [![en](https://img.shields.io/badge/README-id-re
 
 ## .env Settings
 
-| Name | Description | Default |
-| --- | ----------- | --------- |
-| API_KEY | Custom API KEY | |
-| API_ID / API_HASH | API and API HASH from telegram account | |
-| POINTS_COUNT | Randomize score for each game  | [450, 600] |
-| AUTO_PLAY_GAME | Auto Play Game | True |
-| AUTO_TASK | Auto Clear Tasks | True |
-| AUTO_DAILY_REWARD | Auto Claim Daily Reward| True |
-| AUTO_CLAIM_STARS | Auto Claim Stars | True|
-| AUTO_CLAIM_COMBO | Auto Claim Daily Combo | True |
-| USE_RANDOM_DELAY_IN_RUN | Activate delay before start the bot | True |
-| RANDOM_DELAY_IN_RUN | Randomize delay in seconds before start the bot | [5, 30] |
-| USE_PROXY_FROM_FILE | For using proxy | False |
+| Name                    | Description                                     | Default    |
+| ----------------------- | ----------------------------------------------- | ---------- |
+| API_KEY                 | Custom API KEY                                  |            |
+| API_ID / API_HASH       | API and API HASH from telegram account          |            |
+| POINTS_COUNT            | Randomize score for each game                   | [450, 600] |
+| AUTO_PLAY_GAME          | Auto Play Game                                  | True       |
+| AUTO_TASK               | Auto Clear Tasks                                | True       |
+| AUTO_DAILY_REWARD       | Auto Claim Daily Reward                         | True       |
+| AUTO_CLAIM_STARS        | Auto Claim Stars                                | True       |
+| AUTO_CLAIM_COMBO        | Auto Claim Daily Combo                          | True       |
+| USE_RANDOM_DELAY_IN_RUN | Activate delay before start the bot             | True       |
+| RANDOM_DELAY_IN_RUN     | Randomize delay in seconds before start the bot | [5, 30]    |
+| USE_PROXY_FROM_FILE     | For using proxy                                 | False      |
 
 ## Prerequisites
 
@@ -39,11 +42,6 @@ Obtain API ID and API HASH:
 Make sure you already install:
 
 - [Python](https://www.python.org/downloads/release/python-31014/) **version 3.10**
-  
-### Disclaimer
-
-Please only use telegram account with id below `61xxxxx`, check `@userinfobot` for checking the id.
-Otherwise the account will got automatically banned !!
 
 ## Request API KEY
 
@@ -80,7 +78,7 @@ sudo chmod +x ubuntu/install.sh ubuntu/run.sh ubuntu/update.sh
 ```
 
 ```shell
-./ubuntu/install.sh
+source ./ubuntu/install.sh
 ```
 
 ***note : dont forget to edit file `.env`***
@@ -122,20 +120,4 @@ windows\run.bat
 
 ```shell
 ./ubuntu/run.sh
-```
-
-## Update Bot
-
-For update the bot:
-
-**Windows** :
-
-```shell
-windows\update.bat
-```
-
-**Mac / Linux / VPS** :
-
-```shell
-./ubuntu/update.sh
 ```
