@@ -2,6 +2,8 @@ import json
 from datetime import datetime, timedelta, timezone
 from urllib.parse import unquote
 from tzlocal import get_localzone
+from bot.config import settings
+from bot.exceptions import MissingApiKeyException
 
 
 def convert_datetime_str_to_utc(datetime_str):
@@ -88,8 +90,35 @@ def get_tele_obj_from_query_id(query_id):
     tele_obj = decode_query_id(query_id)
     return tele_obj
 
+
 def convert_to_local_and_unix(iso_time):
-    dt = datetime.fromisoformat(iso_time.replace('Z', '+00:00'))
+    dt = datetime.fromisoformat(iso_time.replace("Z", "+00:00"))
     local_dt = dt.astimezone(get_localzone())
     unix_time = int(local_dt.timestamp())
     return unix_time
+
+
+def format_large_number(number):
+    if number >= 1_000_000_000:  # Check if the number is in billions
+        return f"{number / 1_000_000_000:.2f}B"
+    elif number >= 1_000_000:  # Check if the number is in millions
+        return f"{number / 1_000_000:.2f}M"
+    else:
+        return str(number)
+
+
+class bcolors:
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+
+
+def check_license_key():
+    if not settings.LICENSE_KEY:
+        raise MissingApiKeyException("LICENSE KEY is missing, please check your .env file!")
